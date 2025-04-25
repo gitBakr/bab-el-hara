@@ -23,7 +23,7 @@ export const MenuItem = ({ name, description, price, image }: MenuItemProps) => 
       </div>
       <p className="text-gray-600 text-sm mb-3 font-arabic">{description}</p>
       <div className="w-full flex flex-col gap-2">
-        <span className="text-xl font-bold text-primary-foreground font-arabic">{price} ﷼</span>
+        <span className="text-xl font-bold text-primary-foreground font-arabic">{price} TND</span>
         <Button 
           className="w-full bg-orange-500 hover:bg-orange-600 text-white font-arabic"
           variant="default"
