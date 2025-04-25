@@ -1,6 +1,9 @@
 
 import { MenuItem } from "@/components/MenuItem";
 import { ChefHat } from "lucide-react";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { Categories } from "@/components/Categories";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const Index = () => {
   const menuItems = [
@@ -45,6 +48,8 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto py-12">
+        <HeroCarousel />
+        <Categories />
         <h2 className="text-3xl font-bold text-center mb-12 text-primary-foreground font-arabic">
           قائمة الطعام
         </h2>
@@ -54,6 +59,8 @@ const Index = () => {
           ))}
         </div>
       </main>
+      
+      <WhatsAppButton />
     </div>
   );
 };
