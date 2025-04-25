@@ -1,9 +1,9 @@
-
 import { MenuItem } from "@/components/MenuItem";
 import { ChefHat } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Categories } from "@/components/Categories";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   const menuItems = [
@@ -61,6 +61,7 @@ const Index = () => {
       </main>
       
       <WhatsAppButton />
+      <Footer />
     </div>
   );
 };
