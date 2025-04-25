@@ -20,7 +20,7 @@ export const HeroCarousel = () => {
       <CarouselContent>
         {heroImages.map((image, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[400px]">
+            <div className="relative h-[250px]">
               <img
                 src={image}
                 alt={`صورة ${index + 1}`}
@@ -30,8 +30,8 @@ export const HeroCarousel = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="right-12" />
-      <CarouselNext />
+      <CarouselPrevious className="absolute left-2 z-10" />
+      <CarouselNext className="absolute right-2 z-10" />
     </Carousel>
   );
 };
