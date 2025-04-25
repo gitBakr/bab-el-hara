@@ -1,12 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import image1 from "../assets/37d51d1a-e507-4611-a68a-3a7345fe2ef8.png";
+import image2 from "../assets/bc6b38fd-424d-4a3c-b306-8edf0d5bcb0d.png";
 
 interface MenuItemProps {
   name: string;
   description: string;
   price: number;
   image: string;
+  category: string;
 }
+
+const menuItems = [
+  {
+    name: "هنيث باللحم",
+    description: "أرز بسمتي مع لحم الضأن المشوي والمكسرات",
+    price: 25,
+    image: image1
+  },
+  {
+    name: "بيتزا خاصة",
+    description: "بيتزا محضرة على الطريقة التقليدية",
+    price: 18,
+    image: image2
+  }
+];
 
 export const MenuItem = ({ name, description, price, image }: MenuItemProps) => {
   return (
