@@ -1,37 +1,76 @@
 import { MenuItem } from "@/components/MenuItem";
 import { ChefHat } from "lucide-react";
-import { HeroCarousel } from "@/components/HeroCarousel";
+import { HeroImage } from "@/components/HeroCarousel";
 import { Categories } from "@/components/Categories";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Footer } from "@/components/Footer";
+import { useState } from "react";
 
 const Index = () => {
+  const [filteredCategory, setFilteredCategory] = useState("all");
+
   const menuItems = [
     {
       name: "مندي لحم تقليدي",
       description: "لحم ضأن طري مطهو على الطريقة التقليدية مع الأرز البسمتي المعطر والمكسرات",
       price: 45,
-      image: "public/lovable-uploads/37d51d1a-e507-4611-a68a-3a7345fe2ef8.png"
+      image: "https://i.ibb.co/fzm1WMx0/s-mechouia.jpg",
+      category: "main"
     },
     {
       name: "بيتزا تونسية خاصة",
       description: "عجينة محضرة يدويًا مع صلصة طماطم وجبن وخضروات طازجة",
       price: 28,
-      image: "public/lovable-uploads/bc6b38fd-424d-4a3c-b306-8edf0d5bcb0d.png"
+      image: "https://i.ibb.co/JjGdJF9P/dessert1.jpg",
+      category: "main"
     },
     {
-      name: "مندي دجاج محشي",
-      description: "دجاج كامل محشي بالأرز والمكسرات مع البهارات التونسية الخاصة",
+      name: "شاورما دجاج",
+      description: "شاورما دجاج طازجة مع صلصة الثوم والخضروات",
+      price: 12,
+      image: "https://i.ibb.co/1JhD0xdY/Whats-App-Image-2025-04-24-19-50-07-dca18170.jpg",
+      category: "sandwiches"
+    },
+    {
+      name: "كنافة بالجبنة",
+      description: "حلوى شرقية تقليدية محشوة بالجبنة والقشطة",
+      price: 15,
+      image: "https://i.ibb.co/4nT0b16Z/Whats-App-Image-2025-04-24-19-50-07-fe44554b.jpg",
+      category: "desserts"
+    },
+    {
+      name: "قهوة تونسية",
+      description: "قهوة تونسية تقليدية محضرة على الرمل",
+      price: 5,
+      image: "https://i.ibb.co/fzm1WMx0/s-mechouia.jpg",
+      category: "drinks"
+    },
+    {
+      name: "طبق كسكسي",
+      description: "كسكسي تقليدي مع لحم الضأن والخضروات الموسمية",
       price: 35,
-      image: "public/lovable-uploads/fc430996-5c3f-4b8b-b01f-07f3ecdff192.png"
+      image: "https://i.ibb.co/JjGdJF9P/dessert1.jpg",
+      category: "main"
     },
     {
-      name: "طبق المكسرات الخاص",
-      description: "تشكيلة فاخرة من المكسرات المحمصة مع العسل الطبيعي",
-      price: 20,
-      image: "public/lovable-uploads/7473111b-451f-42b6-9f3f-ad06220c978f.png"
+      name: "سندويش تونسي",
+      description: "خبز باقيت محشو بالتونة والبيض والزيتون",
+      price: 8,
+      image: "https://i.ibb.co/1JhD0xdY/Whats-App-Image-2025-04-24-19-50-07-dca18170.jpg",
+      category: "sandwiches"
+    },
+    {
+      name: "بقلاوة",
+      description: "حلوى شرقية بالمكسرات والعسل",
+      price: 10,
+      image: "https://i.ibb.co/4nT0b16Z/Whats-App-Image-2025-04-24-19-50-07-fe44554b.jpg",
+      category: "desserts"
     }
   ];
+
+  const filteredItems = filteredCategory === "all" 
+    ? menuItems 
+    : menuItems.filter(item => item.category === filteredCategory);
 
   return (
     <div className="min-h-screen bg-secondary-foreground" dir="rtl">
@@ -48,13 +87,13 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto py-12">
-        <HeroCarousel />
-        <Categories />
+        <HeroImage />
+        <Categories onCategoryChange={setFilteredCategory} />
         <h2 className="text-3xl font-bold text-center mb-12 text-primary-foreground font-arabic">
           قائمة الطعام
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {menuItems.map((item) => (
+          {filteredItems.map((item) => (
             <MenuItem key={item.name} {...item} />
           ))}
         </div>
